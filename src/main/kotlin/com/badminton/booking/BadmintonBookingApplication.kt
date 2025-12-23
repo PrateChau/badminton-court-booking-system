@@ -8,4 +8,5 @@ class BadmintonBookingApplication
 
 fun main(args: Array<String>) {
 	runApplication<BadmintonBookingApplication>(*args)
+
 }
