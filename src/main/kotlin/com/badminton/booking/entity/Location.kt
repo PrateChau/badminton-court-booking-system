@@ -3,23 +3,21 @@ package com.badminton.booking.entity
 import jakarta.persistence.*
 
 @Entity
-@Table(name = "courts")
-data class Court(
+@Table(name = "locations")
+data class Location(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long = 0,
 
     @Column(nullable = false)
     val name: String,
 
+    @Column(nullable = false)
+    val address: String,
+
     val imageUrl: String? = null,
 
-    @Column(nullable = false)
-    val openTime: String,
-
-    @Column(nullable = false)
-    val closeTime: String,
-
+    // Many locations to one admin (User)
     @ManyToOne
-    @JoinColumn(name = "location_id", nullable = false)
-    val location: Location
+    @JoinColumn(name = "admin_id", nullable = false)
+    val admin: User
 )
